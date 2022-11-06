@@ -1,0 +1,32 @@
+.container {
+  margin: 2rem;
+}
+
+.header {
+  border: 1px solid slategrey;
+  display: flow-root;
+}
+
+.switch-langage {
+  float: left;
+  padding: 1rem;
+}
+
+.stats {
+  float: right;
+  padding: 1rem;
+}
+
+.body {
+  border: 1px solid black;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  margin-left: 8px;
+}

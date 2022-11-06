@@ -1,0 +1,19 @@
+{
+  "switch": {
+    "label": "Translate in french",
+    "button": "Translate"
+  },
+
+  "stats.label": "Statistics",
+  "filter.label": "Filtrer by",
+
+  "movie": {
+    "director": {
+      "name": "Director name"
+    },
+    "name": "Movie name",
+    "nationality": "Nationality",
+    "productionYear": "Year of production",
+    "lastDiffusion": "Last diffusion"
+  }
+}

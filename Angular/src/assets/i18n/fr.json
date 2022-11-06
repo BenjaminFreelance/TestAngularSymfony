@@ -1,0 +1,23 @@
+{
+  "switch": {
+    "label": "Traduire en Anglais",
+    "button": "Traduire"
+  },
+  "stats": {
+    "label": "Statistiques",
+    "broadcast": "Top 5 diffusion",
+    "ratio": "Top 5 des films avec le meilleur ratio",
+    "average": "Top 5 des réalisateurs avec la meilleur moyenne de diffusion"
+  },
+  "filter.label": "Filtrer par",
+
+  "movie": {
+    "director": {
+      "name": "Nom du réalisateur"
+    },
+    "name": "Nom du film",
+    "nationality": "Nationalité",
+    "productionYear": "Année de production",
+    "lastDiffusion": "Dernière diffusion"
+  }
+}

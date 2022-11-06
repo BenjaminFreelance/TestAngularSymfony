@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="header">
+    <div class="switch-langage">
+      <h2>{{ 'switch.label' | translate }}</h2>
+      <button translate (click)="changeLanguage()">{{ 'switch.button' }}</button>
+    </div>
+    <div class="stats">
+      <h2>{{ 'stats.label' | translate }}</h2>
+      <button mat-button (click)="topFiveMovies()">Top 5 diffusion</button>
+      <button mat-button (click)="topFiveRatio()">Top 5 ratio</button>
+      <button mat-button (click)="topFiveAverage()">Top 5 moyenne diffusion</button>
+    </div>
+  </div>
+
+  <div class="body">
+    <form *ngIf="searchForm" [formGroup]="searchForm" class="search__form">
+      <h2>{{ 'filter.label' | translate }}</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'movie.director.name' | translate }}</mat-label>
+        <input type="text"
+               aria-label="Director"
+               matInput
+               formControlName="directorName"
+               (keyup)="applyFilter()"
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{'movie.name' | translate}}</mat-label>
+        <input type="text"
+               aria-label="name"
+               matInput
+               formControlName="movieName"
+               (keyup)="applyFilter()"
+        >
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{'movie.nationality' | translate}}</mat-label>
+        <mat-select (selectionChange)="applyFilter()" formControlName="nationality">
+          <mat-option [value]="">Tous</mat-option>
+          <mat-option *ngFor="let nationality of nationalityList" [value]="nationality">{{nationality}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Nom Column -->
+      <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by nom">
+          {{'movie.name' | translate}}
+        </th>
+        <td mat-cell *matCellDef="let data"> {{data.nom}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="realisateur">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by realisateur">
+          {{'movie.director.name' | translate}}
+        </th>
+        <td mat-cell *matCellDef="let movie"> {{movie.realisateur}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="annee_production">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by annee_production">
+          {{'movie.productionYear' | translate}}
+        </th>
+        <td mat-cell *matCellDef="let movie"> {{movie.annee_production}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="nationalite">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by nationalite">
+          {{'movie.nationality' | translate}}
+        </th>
+        <td mat-cell *matCellDef="let movie"> {{movie.nationalite}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="derniere_diffusion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by derniere_diffusion">
+          {{'movie.lastDiffusion' | translate}}
+        </th>
+        <td mat-cell *matCellDef="let movie"> {{movie.derniere_diffusion}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{'stats.average' | translate}}</h1>
+<div mat-dialog-content>
+  <ul>
+    <li *ngFor="let data of topAverageBroadcast">
+      <span>{{ data.realisateur }} avec une moyenne de {{ data.global_broadcast_average }} diffusions par an pour un total de {{ data.nb_film}} film(s) </span>
+    </li>
+  </ul>
+</div>

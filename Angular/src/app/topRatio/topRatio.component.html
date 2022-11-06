@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{'stats.ratio' | translate}}</h1>
+<div mat-dialog-content>
+  <ul>
+    <li *ngFor="let movie of topRatio">
+      <span>{{ movie.nom }} réalisé par {{ movie.realisateur }}</span>
+    </li>
+  </ul>
+</div>
